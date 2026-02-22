@@ -1,0 +1,15 @@
+{
+  "name": "archlens",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm -ws run build",
+    "dev": "npm -ws run dev",
+    "lint": "npm -ws run lint"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.0"
+  }
+}
