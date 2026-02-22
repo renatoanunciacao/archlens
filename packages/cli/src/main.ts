@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { Command } from "commander";
-import { analyzeProject } from "@archlens/engine";
+import { analyzeProject } from "./engine/index.js";
 import fs from "node:fs/promises";
 import path from "node:path";
 

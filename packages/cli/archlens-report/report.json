@@ -1,0 +1,282 @@
+{
+  "meta": {
+    "projectName": "cli",
+    "analyzedAt": "2026-02-22T18:16:32.518Z",
+    "fileCount": 11
+  },
+  "graph": {
+    "nodes": [
+      "src/engine/fileCollector.ts",
+      "src/engine/graph.ts",
+      "src/engine/importParsers.ts",
+      "src/engine/index.ts",
+      "src/engine/metrics.ts",
+      "src/engine/resolve.ts",
+      "src/engine/score.ts",
+      "src/engine/tarjan.ts",
+      "src/engine/tsconfigAliases.ts",
+      "src/engine/types.ts",
+      "src/main.ts"
+    ],
+    "edges": []
+  },
+  "cycles": [],
+  "metrics": {
+    "perFile": [
+      {
+        "file": "src/engine/fileCollector.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/graph.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/importParsers.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/index.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/metrics.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/resolve.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/score.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/tarjan.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/tsconfigAliases.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/types.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/main.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      }
+    ],
+    "topFanIn": [
+      {
+        "file": "src/engine/fileCollector.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/graph.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/importParsers.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/index.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/metrics.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/resolve.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/score.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/tarjan.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/tsconfigAliases.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/types.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      }
+    ],
+    "topFanOut": [
+      {
+        "file": "src/engine/fileCollector.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/graph.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/importParsers.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/index.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/metrics.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/resolve.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/score.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/tarjan.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/tsconfigAliases.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/types.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      }
+    ],
+    "danger": []
+  },
+  "score": {
+    "value": 100,
+    "grade": "A",
+    "status": "Healthy",
+    "breakdown": [
+      {
+        "key": "cycles",
+        "points": 0,
+        "details": "No dependency cycles detected"
+      },
+      {
+        "key": "danger>=4",
+        "points": 0,
+        "details": "No elevated coupling hotspots (dangerScore ≥ 4)"
+      },
+      {
+        "key": "danger>=9",
+        "points": 0,
+        "details": "No strong coupling hotspots (dangerScore ≥ 9)"
+      },
+      {
+        "key": "fanOut>=10",
+        "points": 0,
+        "details": "No modules with very high fanOut (≥ 10)"
+      },
+      {
+        "key": "fanOut>=20",
+        "points": 0,
+        "details": "No modules with extreme fanOut (≥ 20)"
+      }
+    ]
+  }
+}
