@@ -1,31 +1,17 @@
-🌎 **Language:** [English](#english) | [Português](#português)
-
----
-
-# English
-
-## ArchLens
-
+Language: English | Português
+English
+ArchLens
 Architecture health analyzer for JavaScript and TypeScript projects.
-
 ArchLens detects structural problems that most code quality tools ignore:
-
-- Dependency cycles
-- Coupling hotspots
-- Fan-in / Fan-out imbalance
-- Structural instability
-- Architecture Health Score (0–100)
-
-> Code quality tools analyze lines.  
-> ArchLens analyzes structure.
-
----
-
-## 🚀 Quick Start
-
+Dependency cycles
+Coupling hotspots
+Fan-in / Fan-out imbalance
+Structural instability
+Architecture Health Score (0–100)
+Code quality tools analyze lines.
+ArchLens analyzes structure.
+🚀 Quick Start
 Run directly with npx:
-
-```bash
 npx archlens analyze .
 Or install globally:
 npm install -g archlens
@@ -71,13 +57,9 @@ fanOut
 instability = fanOut / (fanIn + fanOut)
 dangerScore = fanIn × fanOut
 Generates an Architecture Health Score.
-Time complexity for cycle detection: O(V + E).
-
-
+Cycle detection time complexity: O(V + E).
 Português
-
 ArchLens
-
 Analisador de saúde arquitetural para projetos JavaScript e TypeScript.
 O ArchLens detecta problemas estruturais que ferramentas tradicionais de qualidade de código não enxergam:
 Ciclos de dependência

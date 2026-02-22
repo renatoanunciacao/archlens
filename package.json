@@ -11,5 +11,13 @@
   },
   "devDependencies": {
     "@types/node": "^25.3.0"
-  }
+  },
+  "keywords": [
+    "architecture",
+    "static-analysis",
+    "dependency-graph",
+    "typescript",
+    "code-quality",
+    "cli"
+  ]
 }
