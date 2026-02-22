@@ -19,6 +19,9 @@
     "@babel/parser": "^7.26.0",
     "fast-glob": "^3.3.3"
   },
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "typescript": "^5.6.3"
   }

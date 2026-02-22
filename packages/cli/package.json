@@ -2,6 +2,9 @@
   "name": "@archlens/cli",
   "version": "0.1.0",
   "type": "module",
+  "files": [
+    "dist"
+  ],
   "bin": {
     "archlens": "dist/main.js"
   },
