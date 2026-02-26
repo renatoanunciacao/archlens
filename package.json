@@ -1,6 +1,10 @@
 {
   "name": "archlens",
-  "private": true,
+  "private": false,
+  "license": "MIT",
+  "bin": {
+    "archlens": "packages/cli/dist/main.js"
+  },
   "workspaces": [
     "packages/*"
   ],
