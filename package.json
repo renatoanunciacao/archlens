@@ -13,6 +13,9 @@
     "dev": "npm -ws run dev",
     "lint": "npm -ws run lint"
   },
+  "dependencies": {
+    "commander": "^12.1.0"
+  },
   "devDependencies": {
     "@types/node": "^25.3.0"
   },
