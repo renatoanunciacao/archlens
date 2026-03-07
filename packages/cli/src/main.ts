@@ -4,6 +4,8 @@ import { Command } from "commander";
 import { analyzeProject } from "./engine/index.js";
 import fs from "node:fs/promises";
 import path from "node:path";
+import { toJson } from "../reporters/jsonReporter.js";
+import { toText } from "../reporters/textReporter.js";
 
 type ArchLensCliConfig = {
   projectName?: string;
@@ -20,9 +22,11 @@ program
 
 program
   .command("analyze")
-  .argument("<targetPath>", "Path do projeto (ex: .)")
-  .option("--config <file>", "Arquivo de config", "archlens.config.json")
-  .option("--out <dir>", "Pasta de saída", "./archlens-report")
+  .argument("<targetPath>", "Project path (e.g. .)")
+  .option("--config <file>", "Config file", "archlens.config.json")
+  .option("--out <dir>", "Output directory", "./archlens-report")
+  .option("--format <type>", "Output format (text|json)", "text")
+  .option("--output <file>", "Write output to file")
   .action(async (targetPath: string, opts) => {
     const cwd = path.resolve(process.cwd(), targetPath);
     const outDir = path.resolve(process.cwd(), opts.out);
@@ -42,7 +46,6 @@ program
 
     let cfg: ArchLensCliConfig = {};
     try {
-      // config é opcional: se não existir, usa defaults
       cfg = JSON.parse(await fs.readFile(configPath, "utf8"));
     } catch {
       cfg = {};
@@ -59,53 +62,31 @@ program
       excludeGlobs,
     });
 
-    await fs.mkdir(outDir, { recursive: true });
+    const format = opts.format === "json" ? "json" : "text";
+    const content = format === "json" ? toJson(report) : toText(report);
 
-    const jsonPath = path.join(outDir, "report.json");
-    await fs.writeFile(jsonPath, JSON.stringify(report, null, 2), "utf8");
+    if (opts.output) {
+      const outputPath = path.resolve(process.cwd(), opts.output);
+      const outputDir = path.dirname(outputPath);
 
-    console.log(`\n✅ ArchLens analysis complete`);
-    console.log(`Project: ${report.meta.projectName}`);
-    console.log(`Files analyzed: ${report.meta.fileCount}`);
-    console.log(`Edges: ${report.graph.edges.length}`);
+      await fs.mkdir(outputDir, { recursive: true });
+      await fs.writeFile(outputPath, content, "utf8");
 
-    console.log(
-      `Architecture Health Score: ${report.score.value}/100 (${report.score.grade})`,
-    );
-    console.log(`Status: ${report.score.status}`);
-
-    const penalties = report.score.breakdown.filter((b) => b.points < 0);
-    if (penalties.length) {
-      console.log("\nScore breakdown (penalties):");
-      for (const p of penalties) {
-        console.log(`  ${p.points}  ${p.details}`);
-      }
+      console.log(`Output written to ${outputPath}`);
+      return;
     }
 
-    const topIn = report.metrics.topFanIn.slice(0, 3);
-    const topOut = report.metrics.topFanOut.slice(0, 3);
-    const danger = report.metrics.danger.slice(0, 3);
+    if (format === "json") {
+      await fs.mkdir(outDir, { recursive: true });
 
-    console.log("Top Fan-in (críticos):");
-    for (const m of topIn)
-      console.log(`  - ${m.fanIn} in  | ${m.fanOut} out | ${m.file}`);
+      const jsonPath = path.join(outDir, "report.json");
+      await fs.writeFile(jsonPath, content, "utf8");
 
-    console.log("Top Fan-out (instáveis):");
-    for (const m of topOut)
-      console.log(`  - ${m.fanIn} in  | ${m.fanOut} out | ${m.file}`);
-
-    console.log("Danger (acoplados):");
-    for (const m of danger)
-      console.log(`  - ${m.fanIn} in  | ${m.fanOut} out | ${m.file}`);
-
-    if (report.cycles.length) {
-      console.log(`Cycles detected: ${report.cycles.length}`);
-      console.log(
-        `  - ${report.cycles[0].id}: ${report.cycles[0].nodes.join(" -> ")}`,
-      );
+      console.log(`Report written to ${jsonPath}`);
+      return;
     }
 
-    console.log(`Report: ${jsonPath}\n`);
+    console.log(`\n${content}\n`);
   });
 
 program.parse(process.argv);

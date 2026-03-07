@@ -1,10 +1,10 @@
 {
   "name": "archlens",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "type": "module",
   "license": "MIT",
   "bin": {
-    "archlens": "dist/main.js"
+    "archlens": "./dist/main.js"
   },
   "files": [
     "dist"
@@ -15,7 +15,8 @@
   "dependencies": {
     "@babel/parser": "^7.26.0",
     "fast-glob": "^3.3.3",
-    "commander": "^x.y.z"
+    "commander": "^12.1.0",
+    "typescript": "^5.6.3"
   },
   "devDependencies": {
     "typescript": "^5.6.3"

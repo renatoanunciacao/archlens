@@ -14,7 +14,7 @@ function gradeFromScore(v: number): Score["grade"] {
 
 function statusFromScore(v: number): Score["status"] {
   if (v >= 80) return "Healthy";
-  if (v >= 60) return "Warning";
+  if (v >= 60) return "Architecture Warning";
   return "Critical";
 }
 

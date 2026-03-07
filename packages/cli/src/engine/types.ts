@@ -42,6 +42,6 @@ export type ScoreBreakdownItem = {
 export type Score = {
   value: number;        // 0..100
   grade: "A" | "B" | "C" | "D" | "F";
-  status: "Healthy" | "Warning" | "Critical";
+  status: "Healthy" | "Architecture Warning" | "Critical";
   breakdown: ScoreBreakdownItem[];
 };
