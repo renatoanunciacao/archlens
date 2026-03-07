@@ -1,10 +1,10 @@
 {
   "name": "archlens",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "type": "module",
   "license": "MIT",
   "bin": {
-    "archlens": "./dist/main.js"
+    "archlens": "dist/src/main.js"
   },
   "files": [
     "dist"
