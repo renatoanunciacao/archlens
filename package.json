@@ -1,6 +1,6 @@
 {
   "name": "archlens",
-  "private": true,
+  "private": false,
   "license": "MIT",
   "bin": {
     "archlens": "packages/cli/dist/main.js"
@@ -29,5 +29,5 @@
     "code-quality",
     "cli"
   ],
-  "version": "0.0.5"
+  "version": "0.2.1"
 }

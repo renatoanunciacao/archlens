@@ -2,6 +2,7 @@
 
 import { Command } from "commander";
 import { analyzeProject } from "./engine/index.js";
+import { evaluateFailOn } from "./failOn.js";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { toJson } from "../reporters/jsonReporter.js";
@@ -27,6 +28,10 @@ program
   .option("--out <dir>", "Output directory", "./archlens-report")
   .option("--format <type>", "Output format (text|json)", "text")
   .option("--output <file>", "Write output to file")
+  .option(
+    "--fail-on <rule>",
+    "Fail when rule matches (e.g. score<80, cycles>0)",
+  )
   .action(async (targetPath: string, opts) => {
     const cwd = path.resolve(process.cwd(), targetPath);
     const outDir = path.resolve(process.cwd(), opts.out);
@@ -65,6 +70,12 @@ program
     const format = opts.format === "json" ? "json" : "text";
     const content = format === "json" ? toJson(report) : toText(report);
 
+    let failResult = null;
+
+    if (opts.failOn) {
+      failResult = evaluateFailOn(opts.failOn, report);
+    }
+
     if (opts.output) {
       const outputPath = path.resolve(process.cwd(), opts.output);
       const outputDir = path.dirname(outputPath);
@@ -74,9 +85,7 @@ program
 
       console.log(`Output written to ${outputPath}`);
       return;
-    }
-
-    if (format === "json") {
+    } else if (format === "json") {
       await fs.mkdir(outDir, { recursive: true });
 
       const jsonPath = path.join(outDir, "report.json");
@@ -84,9 +93,19 @@ program
 
       console.log(`Report written to ${jsonPath}`);
       return;
+    } else {
+      console.log(`\n${content}\n`);
     }
 
-    console.log(`\n${content}\n`);
+    if (failResult?.matched) {
+      console.error("\n❌ Architecture rule violation");
+
+      for (const violation of failResult.violations) {
+        console.error(`   - ${violation.message}`);
+      }
+
+      process.exit(1);
+    }
   });
 
 program.parse(process.argv);
