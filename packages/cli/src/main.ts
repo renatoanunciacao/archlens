@@ -6,6 +6,7 @@ import { evaluateFailOn } from "./failOn.js";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { toJson } from "../reporters/jsonReporter.js";
+import { toMermaid } from "../reporters/mermaidReporter.js";
 import { toText } from "../reporters/textReporter.js";
 
 type ArchLensCliConfig = {
@@ -32,6 +33,7 @@ program
     "--fail-on <rule>",
     "Fail when rule matches (e.g. score<80, cycles>0)",
   )
+  .option("--graph <type>", "Graph output format (mermaid)")
   .action(async (targetPath: string, opts) => {
     const cwd = path.resolve(process.cwd(), targetPath);
     const outDir = path.resolve(process.cwd(), opts.out);
@@ -68,7 +70,15 @@ program
     });
 
     const format = opts.format === "json" ? "json" : "text";
-    const content = format === "json" ? toJson(report) : toText(report);
+    let content: string;
+
+    if (opts.graph === "mermaid") {
+  content = toMermaid(report);
+} else if (opts.format === "json") {
+  content = toJson(report);
+} else {
+  content = toText(report);
+}
 
     let failResult = null;
 
@@ -101,7 +111,7 @@ program
       console.error("\n❌ Architecture rule violation");
 
       for (const violation of failResult.violations) {
-        console.error(`   - ${violation.message}`);
+        console.error(` - ${violation.message}`);
       }
 
       process.exit(1);

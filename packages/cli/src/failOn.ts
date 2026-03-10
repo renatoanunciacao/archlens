@@ -31,19 +31,27 @@ export function evaluateFailOn(
 
   for (const rule of parsedRules) {
     const normalized = rule.replace(/\s+/g, "");
-    const match = normalized.match(/^(score|cycles)(<=|>=|<|>|==)(\d+)$/);
+    const match = normalized.match(/^(score|cycles|danger)(<=|>=|<|>|==)(\d+)$/);
 
     if (!match) {
       throw new Error(
-        `Invalid --fail-on rule: "${rule}". Supported examples: score<80, cycles>0`,
+        `Invalid --fail-on rule: "${rule}". Supported examples: score<80, cycles>0, danger>2`,
       );
     }
 
     const [, metric, operator, rawValue] = match;
     const expected = Number(rawValue);
 
-    const actual =
-      metric === "score" ? report.score.value : report.cycles.length;
+    let actual: number;
+    if (metric === "score") {
+      actual = report.score.value;
+    } else if(metric === "cycles") {
+      actual = report.cycles.length;
+    } else if(metric === "danger") {
+      actual = report.metrics.danger.length;
+    } else {
+      throw new Error(`Unsupported metric: ${metric}`);
+    }
 
     const triggered = compare(actual, operator, expected);
 

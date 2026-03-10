@@ -92,6 +92,41 @@ Output will be saved to:
 ./archlens-report/report.json
 ```
 
+## Fail rules
+
+ArchLens can fail the process when architecture rules are violated.
+
+Fail when architecture score drops below a threshold:
+
+```bash
+archlens analyze . --fail-on "score<80"
+```
+Fail when dependency cycles are detected:
+
+```bash
+archlens analyze . --fail-on "cycles>0"
+```
+
+Fail when coupling hotspots exceed a threshold:
+```bash
+archlens analyze . --fail-on "danger>2"
+```
+Combine multiple rules:
+```bash
+archlens analyze . --fail-on "score<80,cycles>0,danger>2"
+```
+If a rule is triggered, ArchLens exits with code 1, which allows usage in CI/CD pipelines.
+
+Graph visualization
+
+Generate a dependency graph in Mermaid format:
+```bash
+archlens analyze . --graph mermaid
+```
+Save the graph to a file:
+```bash
+archlens analyze . --graph mermaid --output architecture.md
+```
 ---
 
 # 🧮 Architecture Health Score
