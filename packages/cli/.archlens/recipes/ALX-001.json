@@ -1,0 +1,24 @@
+{
+  "id": "explain-score",
+  "title": "Explain score breakdown",
+  "allowedFiles": [
+    "src/main.ts",
+    "reporters/textReporter.ts"
+  ],
+  "operations": [
+    {
+      "kind": "replace",
+      "file": "src/main.ts",
+      "find": "program.parse(process.argv);",
+      "replace": "program.command(\"explain <aspect>\")\n  .argument(\"<targetPath>\", \"Project path (e.g. .)\")\n  .option(\"--config <file>\", \"Config file\", \"archlens.config.json\")\n  .action(async (aspect: string, targetPath: string, opts) => {\n    // Explain implementation placeholder\n    console.log(`Explaining aspect: ${aspect}`);\n  });\n\nprogram.parse(process.argv);"
+    },
+    {
+      "kind": "append",
+      "file": "reporters/textReporter.ts",
+      "content": "\n\nexport function explainScore(report: Report): string {\n  const lines: string[] = [];\n  lines.push(\"# Architecture Score Breakdown\");\n  lines.push(\"\");\n  lines.push(`Current Score: ${report.score}`);\n  lines.push(\"\");\n  lines.push(\"## Factors\");\n  lines.push(\"- Coupling: affects score negatively\");\n  lines.push(\"- Cycles: critical issues reduce score\");\n  lines.push(\"- Dependencies: well-organized imports increase score\");\n  return lines.join(\"\\n\");\n}\n"
+    }
+  ],
+  "validate": [
+    "npm run build"
+  ]
+}

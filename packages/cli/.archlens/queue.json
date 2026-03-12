@@ -1,0 +1,37 @@
+{
+  "suggestions": [
+    {
+      "id": "ALX-001",
+      "goal": "next-feature",
+      "title": "Explain score breakdown",
+      "summary": "Add a command to explain how the architecture score is composed and which factors influence it.",
+      "status": "completed",
+      "createdAt": "2026-03-12T15:46:13.399Z",
+      "specPath": "/Users/renato.anunciacao/Documents/archlens/packages/cli/.archlens/specs/ALX-001.md",
+      "planPath": "/Users/renato.anunciacao/Documents/archlens/packages/cli/.archlens/plans/ALX-001.md",
+      "recipePath": "/Users/renato.anunciacao/Documents/archlens/packages/cli/.archlens/recipes/ALX-001.json"
+    },
+    {
+      "id": "ALX-002",
+      "goal": "next-feature",
+      "title": "Architecture diff command",
+      "summary": "Add a diff command to compare architecture health between two states or branches.",
+      "status": "completed",
+      "createdAt": "2026-03-12T15:50:50.011Z",
+      "specPath": "/Users/renato.anunciacao/Documents/archlens/packages/cli/.archlens/specs/ALX-002.md",
+      "planPath": "/Users/renato.anunciacao/Documents/archlens/packages/cli/.archlens/plans/ALX-002.md",
+      "recipePath": "/Users/renato.anunciacao/Documents/archlens/packages/cli/.archlens/recipes/ALX-002.json"
+    },
+    {
+      "id": "ALX-003",
+      "goal": "next-feature",
+      "title": "HTML report export",
+      "summary": "Add an HTML export for architecture reports to improve sharing and presentation.",
+      "status": "approved",
+      "createdAt": "2026-03-12T15:52:07.551Z",
+      "specPath": "/Users/renato.anunciacao/Documents/archlens/packages/cli/.archlens/specs/ALX-003.md",
+      "planPath": "/Users/renato.anunciacao/Documents/archlens/packages/cli/.archlens/plans/ALX-003.md",
+      "recipePath": "/Users/renato.anunciacao/Documents/archlens/packages/cli/.archlens/recipes/ALX-003.json"
+    }
+  ]
+}

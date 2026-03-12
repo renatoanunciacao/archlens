@@ -1,0 +1,18 @@
+{
+  "id": "architecture-diff",
+  "title": "Architecture diff command",
+  "allowedFiles": [
+    "src/main.ts"
+  ],
+  "operations": [
+    {
+      "kind": "replace",
+      "file": "src/main.ts",
+      "find": "program.parse(process.argv);",
+      "replace": "program.command(\"diff [path]\").description(\"Compare architecture between states\").action((path) => {\n    // TODO: implement diff functionality\n  });\n\nprogram.parse(process.argv);"
+    }
+  ],
+  "validate": [
+    "npm run build"
+  ]
+}

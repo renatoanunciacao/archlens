@@ -41,3 +41,35 @@ export function toText(report: Report): string {
 
   return lines.join("\n");
 }
+
+
+export function explainScore(report: Report): string {
+  const lines: string[] = [];
+  lines.push("# Architecture Score Breakdown");
+  lines.push("");
+  lines.push(`Current Score: ${report.score}`);
+  lines.push("");
+  lines.push("## Factors");
+  lines.push("- Coupling: affects score negatively");
+  lines.push("- Cycles: critical issues reduce score");
+  lines.push("- Dependencies: well-organized imports increase score");
+  return lines.join("\n");
+}
+
+
+
+export function toHtml(report: Report): string {
+  const lines: string[] = [];
+  lines.push("<!DOCTYPE html>");
+  lines.push("<html>");
+  lines.push("<head>");
+  lines.push("<title>ArchLens Report</title>");
+  lines.push("</head>");
+  lines.push("<body>");
+  lines.push("<h1>Architecture Report</h1>");
+  lines.push(`<p>Score: ${report.score}</p>`);
+  lines.push(`<p>Cycles: ${report.cycles.length}</p>`);
+  lines.push("</body>");
+  lines.push("</html>");
+  return lines.join("\n");
+}

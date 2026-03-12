@@ -1,0 +1,426 @@
+{
+  "meta": {
+    "projectName": "cli",
+    "analyzedAt": "2026-03-12T17:21:13.282Z",
+    "fileCount": 29
+  },
+  "graph": {
+    "nodes": [
+      "src/boot/ai-engine.ts",
+      "src/boot/apply.ts",
+      "src/boot/boot-llm-integration.ts",
+      "src/boot/catalog.ts",
+      "src/boot/context.ts",
+      "src/boot/discovery.ts",
+      "src/boot/example-flow.ts",
+      "src/boot/formatter.ts",
+      "src/boot/index.ts",
+      "src/boot/learning.ts",
+      "src/boot/llm.ts",
+      "src/boot/pipeline.ts",
+      "src/boot/recipes.ts",
+      "src/boot/storage.ts",
+      "src/boot/suggestions.ts",
+      "src/boot/test-llm.ts",
+      "src/boot/types.ts",
+      "src/engine/fileCollector.ts",
+      "src/engine/graph.ts",
+      "src/engine/importParsers.ts",
+      "src/engine/index.ts",
+      "src/engine/metrics.ts",
+      "src/engine/resolve.ts",
+      "src/engine/score.ts",
+      "src/engine/tarjan.ts",
+      "src/engine/tsconfigAliases.ts",
+      "src/engine/types.ts",
+      "src/failOn.ts",
+      "src/main.ts"
+    ],
+    "edges": []
+  },
+  "cycles": [],
+  "metrics": {
+    "perFile": [
+      {
+        "file": "src/boot/ai-engine.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/apply.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/boot-llm-integration.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/catalog.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/context.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/discovery.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/example-flow.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/formatter.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/index.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/learning.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/llm.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/pipeline.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/recipes.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/storage.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/suggestions.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/test-llm.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/types.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/fileCollector.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/graph.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/importParsers.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/index.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/metrics.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/resolve.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/score.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/tarjan.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/tsconfigAliases.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/engine/types.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/failOn.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/main.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      }
+    ],
+    "topFanIn": [
+      {
+        "file": "src/boot/ai-engine.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/apply.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/boot-llm-integration.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/catalog.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/context.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/discovery.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/example-flow.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/formatter.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/index.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/learning.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      }
+    ],
+    "topFanOut": [
+      {
+        "file": "src/boot/ai-engine.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/apply.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/boot-llm-integration.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/catalog.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/context.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/discovery.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/example-flow.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/formatter.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/index.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      },
+      {
+        "file": "src/boot/learning.ts",
+        "fanIn": 0,
+        "fanOut": 0,
+        "instability": null,
+        "dangerScore": 0
+      }
+    ],
+    "danger": []
+  },
+  "score": {
+    "value": 100,
+    "grade": "A",
+    "status": "Healthy",
+    "breakdown": [
+      {
+        "key": "cycles",
+        "points": 0,
+        "details": "No dependency cycles detected"
+      },
+      {
+        "key": "danger>=4",
+        "points": 0,
+        "details": "No elevated coupling hotspots (dangerScore ≥ 4)"
+      },
+      {
+        "key": "danger>=9",
+        "points": 0,
+        "details": "No strong coupling hotspots (dangerScore ≥ 9)"
+      },
+      {
+        "key": "fanOut>=10",
+        "points": 0,
+        "details": "No modules with very high fanOut (≥ 10)"
+      },
+      {
+        "key": "fanOut>=20",
+        "points": 0,
+        "details": "No modules with extreme fanOut (≥ 20)"
+      }
+    ]
+  }
+}

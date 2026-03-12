@@ -60,7 +60,15 @@ Cycles detected: 1
 
 # 🧰 CLI Options
 
-## Output format
+## Commands
+
+### `analyze` - Generate architecture report
+
+Generate a text report:
+
+```bash
+archlens analyze .
+```
 
 Generate JSON output:
 
@@ -72,25 +80,80 @@ Save output to file:
 
 ```bash
 archlens analyze . --output report.txt
-```
-
-Save JSON report:
-
-```bash
 archlens analyze . --format json --output report.json
 ```
 
-Default JSON report directory:
+### `mermaid` - Visualize architecture as graphs
+
+Generate dependency cycles diagram:
 
 ```bash
-archlens analyze . --format json
+archlens mermaid cycles .
 ```
 
-Output will be saved to:
+Generate fan-out/fan-in diagram:
 
+```bash
+archlens mermaid danger .
 ```
-./archlens-report/report.json
+
+Generate health score visualization:
+
+```bash
+archlens mermaid score .
 ```
+
+Generate all graphs combined:
+
+```bash
+archlens mermaid all .
+```
+
+### `diff` - Compare architecture between two reports
+
+Compare two JSON reports to detect regressions:
+
+```bash
+archlens analyze . --format json --output base.json
+archlens analyze . --format json --output head.json
+archlens diff base.json head.json
+```
+
+Output shows:
+- Score delta (improvement or regression)
+- Cycle count changes
+- Danger hotspots changes
+- Files analyzed count
+
+Perfect for CI/CD pipelines:
+
+```bash
+# In your CI workflow
+archlens analyze . --format json --output base.json
+# ... make changes ...
+archlens analyze . --format json --output head.json
+archlens diff base.json head.json
+```
+
+### `html` - Export architecture report as HTML
+
+Generate an interactive HTML report:
+
+```bash
+archlens html .
+```
+
+Save to custom file:
+
+```bash
+archlens html . --output custom-report.html
+```
+
+Perfect for:
+- Sharing with stakeholders
+- Documentation
+- Architecture reviews
+- Team presentations
 
 ## Fail rules
 
@@ -117,16 +180,6 @@ archlens analyze . --fail-on "score<80,cycles>0,danger>2"
 ```
 If a rule is triggered, ArchLens exits with code 1, which allows usage in CI/CD pipelines.
 
-Graph visualization
-
-Generate a dependency graph in Mermaid format:
-```bash
-archlens analyze . --graph mermaid
-```
-Save the graph to a file:
-```bash
-archlens analyze . --graph mermaid --output architecture.md
-```
 ---
 
 
