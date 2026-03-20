@@ -9,6 +9,8 @@ ArchLens detects structural problems that traditional code quality tools often m
 - Fan-in / Fan-out imbalance
 - Structural instability
 - Architecture Health Score (0–100)
+- Framework/technology fingerprinting (Next.js, Vite, Node, React, Vue, Svelte)
+- Project health evaluation with recommended architecture profile (frontend/backend/fullstack)
 
 > Code quality tools analyze lines.  
 > **ArchLens analyzes structure.**
@@ -125,6 +127,22 @@ Output shows:
 - Danger hotspots changes
 - Files analyzed count
 
+### `init-rules` - Initialize architectural rules from presets
+
+Create a `.archlens/rules.json` file based on a preset tailored for common project structures.
+
+ArchLens can now detect the project framework and suggest a default preset automatically (Next.js/Vite/Node). Use this output with `init-rules`.
+
+```bash
+archlens init-rules --preset next-app-router-feature-based
+```
+
+Available presets:
+- `next-app-router-feature-based`
+- `vite-feature-spa`
+- `backend-modular-monolith`
+- `backend-clean-architecture`
+
 ### `html` - Export architecture report as HTML
 
 Generate an interactive HTML report:
@@ -178,9 +196,13 @@ Fail when coupling hotspots exceed a threshold:
 ```bash
 archlens analyze . --fail-on "danger>2"
 ```
+Fail when architecture rules are violated (see `.archlens/rules.json`):
+```bash
+archlens analyze . --fail-on rules
+```
 Combine multiple rules:
 ```bash
-archlens analyze . --fail-on "score<80,cycles>0,danger>2"
+archlens analyze . --fail-on "score<80,cycles>0,danger>2,rules"
 ```
 If a rule is triggered, ArchLens exits with code 1, which allows usage in CI/CD pipelines.
 
@@ -210,7 +232,9 @@ ArchLens performs static structural analysis:
 2. Extracts imports via AST parsing
 3. Builds a directed dependency graph
 4. Detects cycles using **Tarjan’s Algorithm (SCC)**
-5. Computes structural metrics:
+5. Detects project footprint (framework, UI library, routing, backend patterns)
+6. Maps recommended architecture profile (e.g., Next.js app-router feature-based, Vite SPA, modular backend)
+7. Computes structural metrics:
 
 - `fanIn`
 - `fanOut`

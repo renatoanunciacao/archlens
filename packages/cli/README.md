@@ -9,6 +9,8 @@ ArchLens detects structural problems that traditional code quality tools often m
 - Fan-in / Fan-out imbalance
 - Structural instability
 - Architecture Health Score (0–100)
+- Framework/technology fingerprinting (Next.js, Vite, Node, React, Vue, Svelte)
+- Project health evaluation with recommended architecture profile (frontend/backend/fullstack)
 
 > Code quality tools analyze lines.  
 > **ArchLens analyzes structure.**
@@ -30,7 +32,11 @@ npm install -g archlens
 archlens analyze .
 ```
 
----
+# Using ArchLens in a real project?
+
+If ArchLens helped you analyze your project,
+consider giving the project a star on GitHub:
+https://github.com/renatoanunciacao/archlens
 
 # 📊 Example Output
 
@@ -125,6 +131,8 @@ Output shows:
 - Danger hotspots changes
 - Files analyzed count
 
+ArchLens agora sugere o preset mais apropriado com base na detecção de framework/tecnologia do projeto.
+
 Perfect for CI/CD pipelines:
 
 ```bash
@@ -133,6 +141,37 @@ archlens analyze . --format json --output base.json
 # ... make changes ...
 archlens analyze . --format json --output head.json
 archlens diff base.json head.json
+```
+
+### `rules` - Enforce architecture layering rules
+
+Create a file at `.archlens/rules.json` with a list of rules that forbid imports across boundaries.
+
+Example rules file:
+
+```json
+{
+  "rules": [
+    {
+      "name": "domain-no-infra",
+      "from": ["src/domain/**"],
+      "cannotImport": ["src/infra/**"]
+    },
+    {
+      "name": "ui-no-db",
+      "from": ["src/ui/**"],
+      "cannotImport": ["src/database/**"]
+    }
+  ]
+}
+```
+
+When violations are detected, they are shown in the report under **Architecture Rules**.
+
+Run analysis and fail on rules violations:
+
+```bash
+archlens analyze . --fail-on rules
 ```
 
 ### `html` - Export architecture report as HTML
@@ -207,7 +246,9 @@ ArchLens performs static structural analysis:
 2. Extracts imports via AST parsing
 3. Builds a directed dependency graph
 4. Detects cycles using **Tarjan’s Algorithm (SCC)**
-5. Computes structural metrics:
+5. Detects project footprint (framework, UI library, routing, backend patterns)
+6. Maps recommended architecture profile (e.g., Next.js app-router feature-based, Vite SPA, modular backend)
+7. Computes structural metrics:
 
 - `fanIn`
 - `fanOut`
