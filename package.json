@@ -15,8 +15,9 @@
   },
   "dependencies": {
     "@babel/parser": "^7.26.0",
+    "commander": "^12.1.0",
     "fast-glob": "^3.3.3",
-    "commander": "^12.1.0"
+    "minimatch": "^10.2.4"
   },
   "devDependencies": {
     "@types/node": "^25.3.0"

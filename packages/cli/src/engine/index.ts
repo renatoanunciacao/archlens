@@ -3,6 +3,10 @@ import { buildGraph } from "./graph.js";
 import { collectFiles } from "./fileCollector.js";
 import { computeNodeMetrics } from "./metrics.js";
 import { computeScore } from "./score.js";
+import { detectProject } from "./detection/detectProject.js";
+import { evaluateRules } from "./rules/evaluateRules.js";
+import { loadRulesConfig } from "./rules/loadRules.js";
+import { recommendArchitecture } from "./architecture/recommendArchitecture.js";
 import { stronglyConnectedComponents } from "./tarjan.js";
 
 export async function analyzeProject(params: {
@@ -30,15 +34,29 @@ export async function analyzeProject(params: {
 
     const score = computeScore({ cycles, metrics });
 
+  const { rules } = await loadRulesConfig(cwd);
+  const violations = evaluateRules(graph.edges, rules);
+
+  const fingerprint = await detectProject(cwd);
+  const recommendation = recommendArchitecture(fingerprint);
+
   return {
     meta: {
       projectName,
       analyzedAt: new Date().toISOString(),
-      fileCount: graph.nodes.length
+      fileCount: graph.nodes.length,
     },
     graph,
     cycles,
     metrics,
-    score
+    score,
+    rules: {
+      total: violations.length,
+      violations,
+    },
+    architecture: {
+      fingerprint,
+      recommendation,
+    },
   };
 }

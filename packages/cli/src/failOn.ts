@@ -31,11 +31,26 @@ export function evaluateFailOn(
 
   for (const rule of parsedRules) {
     const normalized = rule.replace(/\s+/g, "");
+    if (normalized === "rules") {
+      const hasViolations = (report as any).rules?.violations?.length > 0;
+      if (hasViolations) {
+        violations.push({
+          rule,
+          metric: "rules",
+          operator: "",
+          expected: 0,
+          actual: (report as any).rules.violations.length,
+          message: `rules violated: ${(report as any).rules.violations.length}`,
+        });
+      }
+      continue;
+    }
+
     const match = normalized.match(/^(score|cycles|danger)(<=|>=|<|>|==)(\d+)$/);
 
     if (!match) {
       throw new Error(
-        `Invalid --fail-on rule: "${rule}". Supported examples: score<80, cycles>0, danger>2`,
+        `Invalid --fail-on rule: "${rule}". Supported examples: score<80, cycles>0, danger>2, rules`,
       );
     }
 

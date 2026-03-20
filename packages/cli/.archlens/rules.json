@@ -1,0 +1,14 @@
+{
+  "rules": [
+    {
+      "name": "domain-no-infra",
+      "from": ["src/domain/**"],
+      "cannotImport": ["src/infra/**"]
+    },
+    {
+      "name": "ui-no-data",
+      "from": ["src/ui/**"],
+      "cannotImport": ["src/data/**"]
+    }
+  ]
+}

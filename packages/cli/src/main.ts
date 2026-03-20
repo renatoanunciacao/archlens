@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+import { availableRulePresets, getRulePreset } from "./engine/presets/rulePresets.js";
+
 import { Command } from "commander";
 import { analyzeProject } from "./engine/index.js";
 import { evaluateFailOn } from "./failOn.js";
@@ -31,7 +33,7 @@ program
   .option("--output <file>", "Write output to file")
   .option(
     "--fail-on <rule>",
-    "Fail when rule matches (e.g. score<80, cycles>0)",
+    "Fail when rule matches (e.g. score<80, cycles>0, rules)",
   )
   .action(async (targetPath: string, opts) => {
     const cwd = path.resolve(process.cwd(), targetPath);
@@ -113,6 +115,34 @@ program
 
       process.exit(1);
     }
+  });
+
+program
+  .command("init-rules")
+  .argument("[targetPath]", "Project path (e.g. .)", ".")
+  .option(
+    "--preset <name>",
+    `Rule preset name (${availableRulePresets.join(", ")})`,
+    availableRulePresets[0],
+  )
+  .action(async (targetPath: string, opts) => {
+    const cwd = path.resolve(process.cwd(), targetPath);
+
+    const preset = getRulePreset(opts.preset);
+    if (!preset) {
+      console.error(
+        `Unknown preset '${opts.preset}'. Available presets: ${availableRulePresets.join(", ")}`,
+      );
+      process.exit(1);
+    }
+
+    const outDir = path.join(cwd, ".archlens");
+    const outPath = path.join(outDir, "rules.json");
+
+    await fs.mkdir(outDir, { recursive: true });
+    await fs.writeFile(outPath, JSON.stringify(preset, null, 2), "utf8");
+
+    console.log(`✅ Wrote rules file: ${outPath}`);
   });
 
 program
