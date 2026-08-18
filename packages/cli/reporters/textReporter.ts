@@ -15,6 +15,29 @@ export function toText(report: Report): string {
   lines.push(`Status: ${report.score.status}`);
   lines.push("");
 
+  // Architecture Fit Section
+  if (report.fit) {
+    lines.push("Architecture Fit Evaluation");
+    lines.push(`Profile: ${report.fit.profile}`);
+    lines.push(`Fit Status: ${report.fit.status.toUpperCase()} (${report.fit.score}/100)`);
+    
+    if (report.fit.missingLayers.length > 0) {
+      lines.push(`Missing Layers: ${report.fit.missingLayers.join(", ")}`);
+    }
+    
+    if (report.fit.unexpectedLayers.length > 0) {
+      lines.push(`Unexpected Layers: ${report.fit.unexpectedLayers.join(", ")}`);
+    }
+
+    lines.push("");
+    lines.push("Fit Checks:");
+    for (const check of report.fit.checks) {
+      const statusIcon = check.status === "ok" ? "✅" : check.status === "warning" ? "⚠️" : "❌";
+      lines.push(`  ${statusIcon} ${check.name}: ${check.description}`);
+    }
+    lines.push("");
+  }
+
   lines.push("Top Fan-in (critical modules):");
   for (const item of report.metrics.topFanIn) {
     lines.push(`  - ${item.fanIn} in | ${item.fanOut} out | ${item.file}`);

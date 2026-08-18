@@ -1,5 +1,6 @@
 export type Edge = { from: string; to: string };
 
+import type { ArchitectureFit } from "./fit/index.js";
 import { RuleViolation } from "./rules/evaluateRules";
 
 export type Cycle = {
@@ -56,6 +57,7 @@ export type Report = {
       description: string;
     };
   };
+  fit?: ArchitectureFit;
 };
 
 export type ScoreBreakdownItem = {

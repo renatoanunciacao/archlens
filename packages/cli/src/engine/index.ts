@@ -4,6 +4,7 @@ import { collectFiles } from "./fileCollector.js";
 import { computeNodeMetrics } from "./metrics.js";
 import { computeScore } from "./score.js";
 import { detectProject } from "./detection/detectProject.js";
+import { evaluateFit } from "./fit/index.js";
 import { evaluateRules } from "./rules/evaluateRules.js";
 import { loadRulesConfig } from "./rules/loadRules.js";
 import { recommendArchitecture } from "./architecture/recommendArchitecture.js";
